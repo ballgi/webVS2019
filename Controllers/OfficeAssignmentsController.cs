@@ -5,8 +5,9 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using webVS2019.Models;
 
-namespace webVS2019.Models
+namespace webVS2019.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]

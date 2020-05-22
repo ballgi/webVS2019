@@ -27,6 +27,8 @@ namespace webVS2019.Controllers
             return await _context.Course.ToListAsync();
         }
 
+        
+
         // GET: api/Courses/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Course>> GetCourse(int id)
