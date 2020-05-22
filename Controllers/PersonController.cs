@@ -52,6 +52,7 @@ namespace webVS2019.Controllers
                 return BadRequest();
             }
 
+            //person.DateModified = DateTime.Now;
             _context.Entry(person).State = EntityState.Modified;
 
             try

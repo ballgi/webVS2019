@@ -32,8 +32,7 @@ namespace webVS2019.Models
         [StringLength(128)]
         public string Discriminator { get; set; }
         [Column(TypeName = "datetime")]
-        public DateTime DateModified { get; set; }
-
+        public DateTime? DateModified { get; set; }
 
         [InverseProperty("Instructor")]
         public virtual OfficeAssignment OfficeAssignment { get; set; }

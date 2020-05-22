@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using webVS2019.Models;
 
 namespace webVS2019.Migrations
 {
     [DbContext(typeof(ContosouniversityContext))]
-    partial class ContosouniversityContextModelSnapshot : ModelSnapshot
+    [Migration("20200522221120_init")]
+    partial class init
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -29,9 +31,6 @@ namespace webVS2019.Migrations
 
                     b.Property<int>("Credits")
                         .HasColumnType("int");
-
-                    b.Property<DateTime?>("DateModified")
-                        .HasColumnType("datetime");
 
                     b.Property<int>("DepartmentId")
                         .ValueGeneratedOnAdd()
@@ -83,9 +82,6 @@ namespace webVS2019.Migrations
 
                     b.Property<decimal>("Budget")
                         .HasColumnType("money");
-
-                    b.Property<DateTime?>("DateModified")
-                        .HasColumnType("datetime");
 
                     b.Property<int?>("InstructorId")
                         .HasColumnName("InstructorID")
@@ -168,9 +164,6 @@ namespace webVS2019.Migrations
                         .HasColumnName("ID")
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<DateTime?>("DateModified")
-                        .HasColumnType("datetime");
 
                     b.Property<string>("Discriminator")
                         .IsRequired()

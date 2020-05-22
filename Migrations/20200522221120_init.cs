@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace webVS2019.Migrations
 {
-    public partial class addDateModified : Migration
+    public partial class init : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -17,8 +17,7 @@ namespace webVS2019.Migrations
                     FirstName = table.Column<string>(maxLength: 50, nullable: false),
                     HireDate = table.Column<DateTime>(type: "datetime", nullable: true),
                     EnrollmentDate = table.Column<DateTime>(type: "datetime", nullable: true),
-                    Discriminator = table.Column<string>(maxLength: 128, nullable: false, defaultValueSql: "('Instructor')"),
-                    DateModified = table.Column<DateTime>(type: "datetime", nullable: false)
+                    Discriminator = table.Column<string>(maxLength: 128, nullable: false, defaultValueSql: "('Instructor')")
                 },
                 constraints: table =>
                 {
@@ -35,8 +34,7 @@ namespace webVS2019.Migrations
                     Budget = table.Column<decimal>(type: "money", nullable: false),
                     StartDate = table.Column<DateTime>(type: "datetime", nullable: false),
                     InstructorID = table.Column<int>(nullable: true),
-                    RowVersion = table.Column<byte[]>(rowVersion: true, nullable: false),
-                    DateModified = table.Column<DateTime>(type: "datetime", nullable: false)
+                    RowVersion = table.Column<byte[]>(rowVersion: true, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -75,8 +73,7 @@ namespace webVS2019.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Title = table.Column<string>(maxLength: 50, nullable: true),
                     Credits = table.Column<int>(nullable: false),
-                    DepartmentID = table.Column<int>(nullable: false, defaultValueSql: "((1))"),
-                    DateModified = table.Column<DateTime>(type: "datetime", nullable: false)
+                    DepartmentID = table.Column<int>(nullable: false, defaultValueSql: "((1))")
                 },
                 constraints: table =>
                 {

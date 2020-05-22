@@ -10,8 +10,8 @@ using webVS2019.Models;
 namespace webVS2019.Migrations
 {
     [DbContext(typeof(ContosouniversityContext))]
-    [Migration("20200522092124_addDateModified")]
-    partial class addDateModified
+    [Migration("20200522221316_AddDateModified")]
+    partial class AddDateModified
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -32,7 +32,7 @@ namespace webVS2019.Migrations
                     b.Property<int>("Credits")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("DateModified")
+                    b.Property<DateTime?>("DateModified")
                         .HasColumnType("datetime");
 
                     b.Property<int>("DepartmentId")
@@ -86,7 +86,7 @@ namespace webVS2019.Migrations
                     b.Property<decimal>("Budget")
                         .HasColumnType("money");
 
-                    b.Property<DateTime>("DateModified")
+                    b.Property<DateTime?>("DateModified")
                         .HasColumnType("datetime");
 
                     b.Property<int?>("InstructorId")
@@ -171,7 +171,7 @@ namespace webVS2019.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<DateTime>("DateModified")
+                    b.Property<DateTime?>("DateModified")
                         .HasColumnType("datetime");
 
                     b.Property<string>("Discriminator")

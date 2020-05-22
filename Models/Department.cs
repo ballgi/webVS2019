@@ -27,7 +27,7 @@ namespace webVS2019.Models
         [Required]
         public byte[] RowVersion { get; set; }
         [Column(TypeName = "datetime")]
-        public DateTime DateModified { get; set; }
+        public DateTime? DateModified { get; set; }
 
         [ForeignKey(nameof(InstructorId))]
         [InverseProperty(nameof(Person.Department))]
