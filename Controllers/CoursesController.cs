@@ -27,7 +27,19 @@ namespace webVS2019.Controllers
             return await _context.Course.ToListAsync();
         }
 
-        
+        // GET: api/Courses/CourseStudents
+        [HttpGet("CourseStudents")]
+        public async Task<ActionResult<IEnumerable<VwCourseStudents>>> GetvwCourseStudents()
+        {
+            return await _context.VwCourseStudents.ToListAsync();
+        }
+
+        // GET: api/Courses/CourseStudentCount
+        [HttpGet("CourseStudentCount")]
+        public async Task<ActionResult<IEnumerable<VwCourseStudentCount>>> GetvwCourseStudentCount()
+        {
+            return await _context.VwCourseStudentCount.ToListAsync();
+        }
 
         // GET: api/Courses/5
         [HttpGet("{id}")]
