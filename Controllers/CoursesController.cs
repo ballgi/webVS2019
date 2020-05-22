@@ -41,6 +41,18 @@ namespace webVS2019.Controllers
             return await _context.VwCourseStudentCount.ToListAsync();
         }
 
+        /// <summary>
+        /// Raw SQL Query
+        /// </summary>
+        /// <returns></returns>
+        // GET: api/Courses/DepartmentCourseCount
+        [HttpGet("DepartmentCourseCount")]
+        public async Task<ActionResult<IEnumerable<VwDepartmentCourseCount>>> GetvwDepartmentCourseCount()
+        {
+            var vw1 = await _context.VwDepartmentCourseCount.FromSqlRaw("select * from VwDepartmentCourseCount").ToListAsync();
+            return vw1;
+        }
+
         // GET: api/Courses/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Course>> GetCourse(int id)
