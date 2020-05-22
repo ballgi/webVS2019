@@ -24,6 +24,7 @@ namespace webVS2019.Models
         public int DepartmentId { get; set; }
         [Column(TypeName = "datetime")]
         public DateTime? DateModified { get; set; }
+        public bool? IsDeleted { get; set; }
 
         [ForeignKey(nameof(DepartmentId))]
         [InverseProperty("Course")]

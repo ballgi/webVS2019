@@ -28,6 +28,7 @@ namespace webVS2019.Models
         public byte[] RowVersion { get; set; }
         [Column(TypeName = "datetime")]
         public DateTime? DateModified { get; set; }
+        public bool? IsDeleted { get; set; }
 
         [ForeignKey(nameof(InstructorId))]
         [InverseProperty(nameof(Person.Department))]
