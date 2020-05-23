@@ -24,7 +24,7 @@ namespace webVS2019.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Department>>> GetDepartment()
         {
-            return await _context.Department.ToListAsync();
+            return await _context.Department.Where(o=>o.IsDeleted==null || o.IsDeleted == false).ToListAsync();
         }
 
         // GET: api/Departments/5
@@ -33,7 +33,7 @@ namespace webVS2019.Controllers
         {
             var department = await _context.Department.FindAsync(id);
 
-            if (department == null)
+            if (department == null || (department.IsDeleted.HasValue && department.IsDeleted.Value))
             {
                 return NotFound();
             }
@@ -52,7 +52,7 @@ namespace webVS2019.Controllers
                 return BadRequest();
             }
 
-            //department.DateModified = DateTime.Now;
+            department.DateModified = DateTime.Now;
             _context.Entry(department).State = EntityState.Modified;
 
             try
@@ -91,7 +91,7 @@ namespace webVS2019.Controllers
         public async Task<ActionResult<Department>> DeleteDepartment(int id)
         {
             var department = await _context.Department.FindAsync(id);
-            if (department == null)
+            if (department == null || (department.IsDeleted.HasValue && department.IsDeleted.Value))
             {
                 return NotFound();
             }

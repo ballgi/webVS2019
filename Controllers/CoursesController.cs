@@ -24,7 +24,7 @@ namespace webVS2019.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Course>>> GetCourse()
         {
-            return await _context.Course.ToListAsync();
+            return await _context.Course.Where(o=>o.IsDeleted == null || o.IsDeleted ==false).ToListAsync();
         }
 
         // GET: api/Courses/CourseStudents
@@ -59,7 +59,7 @@ namespace webVS2019.Controllers
         {
             var course = await _context.Course.FindAsync(id);
 
-            if (course == null)
+            if (course == null || (course.IsDeleted.HasValue && course.IsDeleted.Value))
             {
                 return NotFound();
             }
@@ -78,7 +78,7 @@ namespace webVS2019.Controllers
                 return BadRequest();
             }
 
-            //course.DateModified = DateTime.Now;
+            course.DateModified = DateTime.Now;
             _context.Entry(course).State = EntityState.Modified;
 
             try
@@ -117,7 +117,7 @@ namespace webVS2019.Controllers
         public async Task<ActionResult<Course>> DeleteCourse(int id)
         {
             var course = await _context.Course.FindAsync(id);
-            if (course == null)
+            if (course == null || (course.IsDeleted.HasValue && course.IsDeleted.Value))
             {
                 return NotFound();
             }

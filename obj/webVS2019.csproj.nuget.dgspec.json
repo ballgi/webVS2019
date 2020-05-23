@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\Projects\\webVS2019\\webVS2019.csproj": {}
+    "E:\\Projects\\webvs2019\\webVS2019.csproj": {}
   },
   "projects": {
-    "E:\\Projects\\webVS2019\\webVS2019.csproj": {
+    "E:\\Projects\\webvs2019\\webVS2019.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Projects\\webVS2019\\webVS2019.csproj",
+        "projectUniqueName": "E:\\Projects\\webvs2019\\webVS2019.csproj",
         "projectName": "webVS2019",
-        "projectPath": "E:\\Projects\\webVS2019\\webVS2019.csproj",
+        "projectPath": "E:\\Projects\\webvs2019\\webVS2019.csproj",
         "packagesPath": "C:\\Users\\gino_chen\\.nuget\\packages\\",
-        "outputPath": "E:\\Projects\\webVS2019\\obj\\",
+        "outputPath": "E:\\Projects\\webvs2019\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\gino_chen\\AppData\\Roaming\\NuGet\\NuGet.Config",
