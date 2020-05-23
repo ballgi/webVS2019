@@ -20,6 +20,20 @@ namespace webVS2019.Controllers
             _context = context;
         }
 
+        // GET: api/departments/5/courses
+        [HttpGet("{id}/courses")]
+        public async Task<ActionResult<IList<Course>>> GetDepartmentCourses(int id)
+        {
+            var department = await _context.Department.Include("Course").FirstOrDefaultAsync(p => p.DepartmentId == id);
+
+            if (department == null)
+            {
+                return NotFound();
+            }
+
+            return department.Course.ToList();
+        }
+
         // GET: api/Departments
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Department>>> GetDepartment()

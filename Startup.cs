@@ -33,7 +33,8 @@ namespace webVS2019
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllersWithViews();
+            // services.AddControllersWithViews();
+            services.AddControllersWithViews().AddNewtonsoftJson();
             // using Microsoft.EntityFrameworkCore;
             services.AddDbContext<ContosouniversityContext>(options =>
                 options

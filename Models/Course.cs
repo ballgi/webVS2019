@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using Newtonsoft.Json;
 
 namespace webVS2019.Models
 {
@@ -28,6 +29,8 @@ namespace webVS2019.Models
 
         [ForeignKey(nameof(DepartmentId))]
         [InverseProperty("Course")]
+
+        [JsonIgnore]
         public virtual Department Department { get; set; }
         [InverseProperty("Course")]
         public virtual ICollection<CourseInstructor> CourseInstructor { get; set; }
