@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "FG6tgBDS1fSP0eA1OubgK72WSZ+pqSb8wzJKpHII0zB1NT32WQ5m8XVEuGXpjDszI3SBWgFhfqnBFQFxsUUV3g==",
+  "dgSpecHash": "WUDj6v8vMhcrFKrAnUmMtmPsCie23asoheniW7aNXgwUZMollEkwtFuY+9QH8VCUI83FtI3ZgvHSYYe8ZR698A==",
   "success": true,
-  "projectFilePath": "E:\\Projects\\webvs2019\\webVS2019.csproj",
+  "projectFilePath": "E:\\Projects\\webVS2019\\webVS2019.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\gino_chen\\.nuget\\packages\\microsoft.aspnetcore.html.abstractions\\2.2.0\\microsoft.aspnetcore.html.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\gino_chen\\.nuget\\packages\\microsoft.aspnetcore.razor\\2.2.0\\microsoft.aspnetcore.razor.2.2.0.nupkg.sha512",

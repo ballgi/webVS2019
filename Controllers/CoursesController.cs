@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -24,33 +24,7 @@ namespace webVS2019.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Course>>> GetCourse()
         {
-            return await _context.Course.Where(o=>o.IsDeleted == null || o.IsDeleted ==false).ToListAsync();
-        }
-
-        // GET: api/Courses/CourseStudents
-        [HttpGet("CourseStudents")]
-        public async Task<ActionResult<IEnumerable<VwCourseStudents>>> GetvwCourseStudents()
-        {
-            return await _context.VwCourseStudents.ToListAsync();
-        }
-
-        // GET: api/Courses/CourseStudentCount
-        [HttpGet("CourseStudentCount")]
-        public async Task<ActionResult<IEnumerable<VwCourseStudentCount>>> GetvwCourseStudentCount()
-        {
-            return await _context.VwCourseStudentCount.ToListAsync();
-        }
-
-        /// <summary>
-        /// Raw SQL Query
-        /// </summary>
-        /// <returns></returns>
-        // GET: api/Courses/DepartmentCourseCount
-        [HttpGet("DepartmentCourseCount")]
-        public async Task<ActionResult<IEnumerable<VwDepartmentCourseCount>>> GetvwDepartmentCourseCount()
-        {
-            var vw1 = await _context.VwDepartmentCourseCount.FromSqlRaw("select * from VwDepartmentCourseCount").ToListAsync();
-            return vw1;
+            return await _context.Course.ToListAsync();
         }
 
         // GET: api/Courses/5
@@ -59,7 +33,7 @@ namespace webVS2019.Controllers
         {
             var course = await _context.Course.FindAsync(id);
 
-            if (course == null || (course.IsDeleted.HasValue && course.IsDeleted.Value))
+            if (course == null)
             {
                 return NotFound();
             }
@@ -78,7 +52,6 @@ namespace webVS2019.Controllers
                 return BadRequest();
             }
 
-            course.DateModified = DateTime.Now;
             _context.Entry(course).State = EntityState.Modified;
 
             try
@@ -117,7 +90,7 @@ namespace webVS2019.Controllers
         public async Task<ActionResult<Course>> DeleteCourse(int id)
         {
             var course = await _context.Course.FindAsync(id);
-            if (course == null || (course.IsDeleted.HasValue && course.IsDeleted.Value))
+            if (course == null)
             {
                 return NotFound();
             }

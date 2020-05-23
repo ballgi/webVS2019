@@ -39,6 +39,9 @@ namespace webVS2019.Migrations
                         .HasColumnType("int")
                         .HasDefaultValueSql("((1))");
 
+                    b.Property<bool?>("IsDeleted")
+                        .HasColumnType("bit");
+
                     b.Property<string>("Title")
                         .HasColumnType("nvarchar(50)")
                         .HasMaxLength(50);
@@ -90,6 +93,9 @@ namespace webVS2019.Migrations
                     b.Property<int?>("InstructorId")
                         .HasColumnName("InstructorID")
                         .HasColumnType("int");
+
+                    b.Property<bool?>("IsDeleted")
+                        .HasColumnType("bit");
 
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(50)")
@@ -189,6 +195,9 @@ namespace webVS2019.Migrations
 
                     b.Property<DateTime?>("HireDate")
                         .HasColumnType("datetime");
+
+                    b.Property<bool?>("IsDeleted")
+                        .HasColumnType("bit");
 
                     b.Property<string>("LastName")
                         .IsRequired()
