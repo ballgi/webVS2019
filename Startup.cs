@@ -9,6 +9,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
 using webVS2019.Models;
 
 namespace webVS2019
@@ -20,6 +21,13 @@ namespace webVS2019
             Configuration = configuration;
         }
 
+        public static readonly ILoggerFactory MyLoggerFactory =
+            LoggerFactory.Create(builder =>
+            {
+                builder.AddConsole();
+            });
+
+
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
@@ -28,7 +36,9 @@ namespace webVS2019
             services.AddControllersWithViews();
             // using Microsoft.EntityFrameworkCore;
             services.AddDbContext<ContosouniversityContext>(options =>
-                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+                options
+                .UseLoggerFactory(MyLoggerFactory)
+                .UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             
         }
 
